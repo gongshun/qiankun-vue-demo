@@ -43,7 +43,7 @@ function genActiveRule(routerPrefix) {
 }
 
 registerMicroApps([
-  { name: 'app-vue-hash', entry: 'http://localhost:80', render, activeRule: genActiveRule('/app-vue-hash') },
+  { name: 'app-vue-hash', entry: 'http://localhost:7101', render, activeRule: genActiveRule('/app-vue-hash') },
   { name: 'app-vue-history', entry: 'http://localhost:1314', render, activeRule: genActiveRule('/app-vue-history') },
 ]);
 
