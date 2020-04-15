@@ -3,6 +3,7 @@
     <header>
       <router-link to="/app-vue-hash/">app-vue-hash</router-link>
       <router-link to="/app-vue-history/">app-vue-history</router-link>
+      <span @click="changeParentState">主项目的数据：{{ commonData.parent }}，点击变回1</span>
     </header>
     <div v-if="loading" class="loading">loading</div>
     <div class="appContainer" v-html="content">content</div>
@@ -20,6 +21,16 @@ export default {
       type: String,
       default: ''
     },
+  },
+  computed: {
+    commonData(){
+      return this.$store.state.commonData;
+    }
+  },
+  methods: {
+    changeParentState(){
+      this.$store.commit('setCommonData',{ parent: 1 });
+    }
   },
 }
 </script>

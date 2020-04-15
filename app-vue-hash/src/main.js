@@ -10,14 +10,18 @@ Vue.config.productionTip = false;
 let router = null;
 let instance = null;
 
-function render() {
+function render(parentStore) {
   router = new VueRouter({
     routes,
   });
-
   instance = new Vue({
     router,
     store,
+    data(){
+      return {
+        store: parentStore,
+      }
+    },
     render: h => h(App),
   }).$mount('#appVueHash');
 }
@@ -32,11 +36,12 @@ export async function bootstrap() {
 }
 
 export async function mount(props) {
-  console.log('props from main framework', props);
-  render();
+  console.log('props from main framework', props.data);
+  render(props.data);
 }
 
 export async function unmount() {
+  Vue.prototype.$parentState = undefined;
   instance.$destroy();
   instance = null;
   router = null;

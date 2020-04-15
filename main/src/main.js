@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
+import store from './store'
 import { registerMicroApps, start } from 'qiankun';
 
 Vue.config.productionTip = false
@@ -11,6 +12,7 @@ function render({ appContent, loading }) {
     app = new Vue({
       el: '#container',
       router,
+      store,
       data() {
         return {
           content: appContent,
@@ -43,8 +45,8 @@ function genActiveRule(routerPrefix) {
 }
 
 registerMicroApps([
-  { name: 'app-vue-hash', entry: 'http://localhost:7101', render, activeRule: genActiveRule('/app-vue-hash') },
-  { name: 'app-vue-history', entry: 'http://localhost:1314', render, activeRule: genActiveRule('/app-vue-history') },
+  { name: 'app-vue-hash', entry: 'http://localhost:7101', render, activeRule: genActiveRule('/app-vue-hash'), props: { data : store } },
+  { name: 'app-vue-history', entry: 'http://localhost:1314', render, activeRule: genActiveRule('/app-vue-history'), props: { data : store } },
 ]);
 
 start();
