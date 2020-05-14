@@ -10,7 +10,7 @@ let app = null;
 function render({ appContent, loading }) {
   if (!app) {
     app = new Vue({
-      el: '#container',
+      el: '#app',
       router,
       store,
       data() {

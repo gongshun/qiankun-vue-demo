@@ -41,7 +41,6 @@ export async function mount(props) {
 }
 
 export async function unmount() {
-  Vue.prototype.$parentState = undefined;
   instance.$destroy();
   instance = null;
   router = null;
