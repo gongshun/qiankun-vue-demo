@@ -6,47 +6,27 @@ import { registerMicroApps, start } from 'qiankun';
 
 Vue.config.productionTip = false
 
-let app = null;
-function render({ appContent, loading }) {
-  if (!app) {
-    app = new Vue({
-      el: '#app',
-      router,
-      store,
-      data() {
-        return {
-          content: appContent,
-          loading,
-        };
-      },
-      render(h){
-        return h(App, {
-          props: {
-            content: this.content,
-            loading: this.loading,
-          },
-        })
-      } 
-    });
-  } else {
-    app.content = appContent;
-    app.loading = loading;
-  }
-}
-
-function initApp() {
-  render({ appContent: '', loading: false });
-}
-
-initApp();
-
-function genActiveRule(routerPrefix) {
-  return location => location.pathname.startsWith(routerPrefix);
-}
+new Vue({
+  router,
+  store,
+  render: h => h(App)
+}).$mount("#app");
 
 registerMicroApps([
-  { name: 'app-vue-hash', entry: 'http://localhost:7101', render, activeRule: genActiveRule('/app-vue-hash'), props: { data : store } },
-  { name: 'app-vue-history', entry: 'http://localhost:1314', render, activeRule: genActiveRule('/app-vue-history'), props: { data : store } },
+  { 
+    name: 'app-vue-hash', 
+    entry: 'http://localhost:1111', 
+    container: '#appContainer', 
+    activeRule: '/app-vue-hash', 
+    props: { data : store }
+  },
+  { 
+    name: 'app-vue-history',
+    entry: 'http://localhost:80', 
+    container: '#appContainer', 
+    activeRule: '/app-vue-history',
+    props: { data : store }
+  },
 ]);
 
 start();

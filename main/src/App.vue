@@ -6,8 +6,7 @@
       <router-link to="/about">about</router-link>
       <span @click="changeParentState">主项目的数据：{{ commonData.parent }}，点击变回1</span>
     </header>
-    <div v-if="loading" class="loading">loading</div>
-    <div class="appContainer" v-html="content">content</div>
+    <div id="appContainer"></div>
     <router-view></router-view>
   </div>
 </template>
