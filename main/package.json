@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "core-js": "^3.6.4",
+    "fetch-polyfill": "^0.8.2",
     "qiankun": "^2.0.11",
     "vue": "^2.6.11",
     "vue-router": "^3.1.5",
