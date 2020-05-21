@@ -10,7 +10,7 @@ Vue.config.productionTip = false;
 let router = null;
 let instance = null;
 
-function render(parentStore) {
+function render(parent) {
   router = new VueRouter({
     routes,
   });
@@ -19,7 +19,8 @@ function render(parentStore) {
     store,
     data(){
       return {
-        store: parentStore,
+        parentRouter: parent.router,
+        parentVuex: parent.store,
       }
     },
     render: h => h(App),

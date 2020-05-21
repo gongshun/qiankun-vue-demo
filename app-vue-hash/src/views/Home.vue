@@ -22,7 +22,7 @@ export default {
   },
   computed: {
     commonData(){
-      return this.isQiankun ? this.$root.store.state.commonData : '';
+      return this.isQiankun ? this.$root.parentVuex.state.commonData : '';
     }
   },
   mounted() {
@@ -31,7 +31,7 @@ export default {
   methods: {
     changeParentState(){
       if(this.isQiankun){
-        this.$root.store.commit('setCommonData', { parent: 2 });
+        this.$root.parentVuex.commit('setCommonData', { parent: 2 });
       }
     }
   },
