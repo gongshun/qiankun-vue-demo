@@ -10,7 +10,7 @@ Vue.config.productionTip = false;
 let router = null;
 let instance = null;
 
-function render(parent) {
+function render(parent = {}) {
   router = new VueRouter({
     routes,
   });
