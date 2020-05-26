@@ -13,16 +13,6 @@
 
 <script>
 export default {
-  props: {
-    loading: {
-      type: Boolean,
-      default: false
-    },
-    content: {
-      type: String,
-      default: ''
-    },
-  },
   computed: {
     commonData(){
       return this.$store.state.commonData;
@@ -39,18 +29,8 @@ export default {
 <style scoped>
 #app{
   height: 100vh;
-  position: relative;
-}
-.loading{
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
   text-align: center;
-  line-height: 100vh;
-  
-  background: rgba(0, 0, 0, 0.2);
+  position: relative;
 }
 header>a{
   margin: 0 20px;
@@ -58,8 +38,5 @@ header>a{
 .appContainer{
   background: #ccc;
   padding: 20px;
-}
-#childContainer{
-  background: #f1f1f1;
 }
 </style>
