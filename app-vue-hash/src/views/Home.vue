@@ -26,7 +26,7 @@ export default {
     }
   },
   mounted() {
-    // console.log('app-vue-hash Home.vue root',this.$root.store.state.commonData)
+    console.log('app-vue-hash Home.vue mounted')
   },
   methods: {
     changeParentState(){
