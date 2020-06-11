@@ -12,17 +12,20 @@ let router = null;
 let instance = null;
 
 function render() {
-  router = new VueRouter({
-    base: window.__POWERED_BY_QIANKUN__ ? '/app-vue-history' : '/',
-    mode: 'history',
-    routes,
-  });
-
-  instance = new Vue({
-    router,
-    store,
-    render: h => h(App),
-  }).$mount('#appVueHistory');
+  console.log(instance);
+  if(!instance){
+    router = new VueRouter({
+      base: window.__POWERED_BY_QIANKUN__ ? '/app-vue-history' : '/',
+      mode: 'history',
+      routes,
+    });
+  
+    instance = new Vue({
+      router,
+      store,
+      render: h => h(App),
+    }).$mount('#appVueHistory');
+  }
 }
 
 if (!window.__POWERED_BY_QIANKUN__) {
@@ -43,7 +46,7 @@ export async function mount(props) {
 }
 
 export async function unmount() {
-  instance.$destroy();
-  instance = null;
-  router = null;
+  // instance.$destroy();
+  // instance = null;
+  // router = null;
 }

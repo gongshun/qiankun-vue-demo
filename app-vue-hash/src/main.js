@@ -11,20 +11,23 @@ let router = null;
 let instance = null;
 
 function render(parent = {}) {
-  router = new VueRouter({
-    routes,
-  });
-  instance = new Vue({
-    router,
-    store,
-    data(){
-      return {
-        parentRouter: parent.router,
-        parentVuex: parent.store,
-      }
-    },
-    render: h => h(App),
-  }).$mount('#appVueHash');
+  console.log(instance);
+  if(!instance){
+    router = new VueRouter({
+      routes,
+    });
+    instance = new Vue({
+      router,
+      store,
+      data(){
+        return {
+          parentRouter: parent.router,
+          parentVuex: parent.store,
+        }
+      },
+      render: h => h(App),
+    }).$mount('#appVueHash');
+  }
 }
 
 if (!window.__POWERED_BY_QIANKUN__) {
@@ -42,7 +45,7 @@ export async function mount(props) {
 }
 
 export async function unmount() {
-  instance.$destroy();
-  instance = null;
-  router = null;
+  // instance.$destroy();
+  // instance = null;
+  // router = null;
 }

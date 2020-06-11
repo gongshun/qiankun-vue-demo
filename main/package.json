@@ -4,11 +4,13 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve --open",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "core-js": "^3.6.4",
     "fetch-polyfill": "^0.8.2",
+    "patch-package": "^6.2.2",
     "qiankun": "^2.0.11",
     "vue": "^2.6.11",
     "vue-router": "^3.1.5",

@@ -1,4 +1,3 @@
-import 'fetch-polyfill';
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
@@ -14,17 +13,17 @@ new Vue({
 }).$mount("#app");
 
 registerMicroApps([
-  { 
+  {
     name: 'app-vue-hash', 
     entry: 'http://localhost:1111', 
-    container: '#appContainer', 
+    container: '#appContainer1', 
     activeRule: '/app-vue-hash', 
     props: { data : { store, router } }
   },
   { 
     name: 'app-vue-history',
     entry: 'http://localhost:2222', 
-    container: '#appContainer', 
+    container: '#appContainer2', 
     activeRule: '/app-vue-history',
     props: { data : store }
   },
