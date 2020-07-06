@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
+import VueRouter from 'vue-router'
 import store from './store'
 import { registerMicroApps, start } from 'qiankun';
 
@@ -18,7 +19,7 @@ registerMicroApps([
     entry: 'http://localhost:1111', 
     container: '#appContainer1', 
     activeRule: '/app-vue-hash', 
-    props: { data : { store, router } }
+    props: { data : { store, router, VueRouter } }
   },
   { 
     name: 'app-vue-history',

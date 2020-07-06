@@ -1,6 +1,5 @@
 import './public-path';
 import Vue from 'vue';
-import VueRouter from 'vue-router';
 import App from './App.vue';
 import routes from './router';
 import store from './store';
@@ -11,8 +10,9 @@ let router = null;
 let instance = null;
 
 function render(parent = {}) {
-  console.log(instance);
   if(!instance){
+    const VueRouter = parent.VueRouter || window.VueRouter;
+    Vue.use(VueRouter);
     router = new VueRouter({
       routes,
     });
