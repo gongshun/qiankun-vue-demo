@@ -89,3 +89,16 @@ index f54d9f0..4179757 100644
                            offGlobalStateChange(appInstanceId); // for gc
  
                            element = null;
+diff --git a/node_modules/qiankun/es/sandbox/patchers/dynamicHeadAppend.js b/node_modules/qiankun/es/sandbox/patchers/dynamicHeadAppend.js
+index 5f98ecb..1698e6c 100644
+--- a/node_modules/qiankun/es/sandbox/patchers/dynamicHeadAppend.js
++++ b/node_modules/qiankun/es/sandbox/patchers/dynamicHeadAppend.js
+@@ -402,7 +402,7 @@ export default function patch(appName, appWrapperGetter, proxy) {
+         // re-append the dynamic stylesheet to sub-app container
+         // Using document.head.appendChild ensures that appendChild calls
+         // can also directly use the HTMLHeadElement.prototype.appendChild method which is overwritten at mounting phase
+-        document.head.appendChild.call(appWrapperGetter(), stylesheetElement);
++        // document.head.appendChild.call(appWrapperGetter(), stylesheetElement);
+         /*
+         get the stored css rules from styled-components generated element, and the re-insert rules for them.
+         note that we must do this after style element had been added to document, which stylesheet would be associated to the document automatically.
