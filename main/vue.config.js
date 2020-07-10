@@ -1,9 +1,15 @@
-const path = require('path');
+// const path = require('path');
 
 module.exports = {
   transpileDependencies: ['single-spa','qiankun','import-html-entry'],
-  chainWebpack: config => {
+  /* chainWebpack: config => {
     config.resolve.alias.set('./patchers', path.resolve(__dirname, 'src/assets/patchers.js'))
-  }
+  } */
+  configureWebpack: {
+    externals: {
+      vue: "Vue",
+      "vue-router": "VueRouter",
+    }
+  },
 };
 

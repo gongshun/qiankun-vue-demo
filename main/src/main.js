@@ -28,6 +28,17 @@ registerMicroApps([
     activeRule: '/app-vue-history',
     props: { data : store }
   },
-]);
+],
+{
+  beforeLoad(app){
+    if(app.name === 'app-vue-hash'){
+      if(window.Vue2){
+        window.Vue = window.Vue2; window.Vue2 = undefined
+      }
+    }else if(app.name === 'app-vue-history'){
+      window.Vue2 = window.Vue; window.Vue = undefined
+    }
+  },
+});
 
 start();
