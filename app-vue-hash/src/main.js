@@ -32,6 +32,7 @@ if (!window.__POWERED_BY_QIANKUN__) {
 }
 //测试全局变量污染
 console.log('window.a',window.a)
+
 export async function bootstrap() {
   console.log('vue app bootstraped');
 }
@@ -43,6 +44,7 @@ export async function mount(props) {
 
 export async function unmount() {
   instance.$destroy();
+  instance.$el.innerHTML = "";
   instance = null;
   router = null;
 }
