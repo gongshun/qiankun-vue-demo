@@ -10,7 +10,7 @@ Vue.config.productionTip = false;
 let router = null;
 let instance = null;
 
-function render(parent = {}) {
+function render({ data = {} , container } = {}) {
   router = new VueRouter({
     routes,
   });
@@ -19,12 +19,12 @@ function render(parent = {}) {
     store,
     data(){
       return {
-        parentRouter: parent.router,
-        parentVuex: parent.store,
+        parentRouter: data.router,
+        parentVuex: data.store,
       }
     },
     render: h => h(App),
-  }).$mount('#appVueHash');
+  }).$mount(container ? container.querySelector('#appVueHash') : '#appVueHash');
 }
 
 if (!window.__POWERED_BY_QIANKUN__) {
@@ -39,7 +39,7 @@ export async function bootstrap() {
 
 export async function mount(props) {
   console.log('props from main framework', props.data);
-  render(props.data);
+  render(props);
 }
 
 export async function unmount() {
