@@ -39,12 +39,9 @@ export async function bootstrap() {
 
 export async function mount(props) {
   console.log('props from main framework', props.data);
+  window.loadMicroApp = props.data.loadMicroApp;
+  window.commonComponents = props.data.commonComponents;
   render(props);
-  props.data.loadMicroApp({
-    name: 'app-vue-history',
-    entry: 'http://localhost:2222', 
-    container: '#appContainer1', 
-  })
 }
 
 export async function unmount() {

@@ -18,13 +18,14 @@ new Vue({
   render: h => h(App)
 }).$mount("#app");
 
+const commonComponents = {};
 registerMicroApps([
   { 
     name: 'app-vue-hash', 
     entry: 'http://localhost:1111', 
     container: '#appContainer', 
     activeRule: '/app-vue-hash', 
-    props: { data : { store, router, loadMicroApp } }
+    props: { data : { store, router, loadMicroApp, commonComponents } }
   },
   // { 
   //   name: 'app-vue-history',
@@ -35,4 +36,5 @@ registerMicroApps([
   // },
 ]);
 
+// 共享组件必须开启多实例
 start({ singular: false });

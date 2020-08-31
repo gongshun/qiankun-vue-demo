@@ -5,6 +5,7 @@ import VueRouter from 'vue-router';
 import App from './App.vue';
 import routes from './router';
 import store from './store';
+import HelloWorld from '@/components/HelloWorld.vue'
 
 Vue.config.productionTip = false;
 
@@ -36,15 +37,21 @@ export async function bootstrap() {
 
 export async function mount(props) {
   console.log('props from main framework', props);
-  render();
+  if(props.data.commonComponents){
+    props.data.commonComponents.HelloWorld = HelloWorld
+  }else{
+    render();
+  }
   // 测试一下 body 的事件，不会被沙箱移除
   // document.body.addEventListener('click', e => console.log('document.body.addEventListener'))
   // document.body.onclick = e => console.log('document.body.addEventListener')
 }
 
 export async function unmount() {
-  instance.$destroy();
-  instance.$el.innerHTML = "";
-  instance = null;
-  router = null;
+  if(instance){
+    instance.$destroy();
+    instance.$el.innerHTML = "";
+    instance = null;
+    router = null;
+  }
 }
