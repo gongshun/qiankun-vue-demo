@@ -7,6 +7,7 @@
       <span @click="changeParentState">主项目的数据：{{ commonData.parent }}，点击变回1</span>
     </header>
     <div id="appContainer"></div>
+    <div id="appContainer1"></div>
     <router-view></router-view>
   </div>
 </template>
