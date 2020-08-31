@@ -35,4 +35,4 @@ registerMicroApps([
   // },
 ]);
 
-start();
+start({ singular: false });
