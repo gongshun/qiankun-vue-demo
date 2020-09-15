@@ -19,6 +19,7 @@
 
 ## 分支介绍
 
-`master` 分支： `qiankun` 的常规基础用法
-`feature/keep-alive` 分支 ：使用 `loadMicroApp` 来实现 `keep-alive`
-`develop` 分支 ：修改源码来实现 `keep-alive`，以及公共依赖的复用的例子
+- `master` 分支： `qiankun` 的常规基础用法
+- `feature/keep-alive` 分支 ：使用 `loadMicroApp` 来实现 `keep-alive`
+- `feature/share-component` 分支 ：项目间共享组件的例子
+- `develop` 分支 ：修改源码来实现 `keep-alive`，以及公共依赖的复用的例子
