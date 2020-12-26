@@ -36,6 +36,7 @@ export async function bootstrap() {
 
 export async function mount(props) {
   console.log('props from main framework', props);
+  Vue.prototype.parentProps = props;
   render();
   // 测试一下 body 的事件，不会被沙箱移除
   // document.body.addEventListener('click', e => console.log('document.body.addEventListener'))

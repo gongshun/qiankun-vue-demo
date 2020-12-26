@@ -4,9 +4,33 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
-    <router-view/>
+    <keep-alive :include="loadedRouteNames">
+      <router-view/>
+    </keep-alive>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      loadedRouteNames: []
+    }
+  },
+  mounted() {
+    if (window.__POWERED_BY_QIANKUN__) {
+      this.parentProps.onGlobalStateChange(state => {
+        const { childRoute } = state['app-vue-history'];
+        const loadedRoutes = childRoute.map(item => this.$router.resolve(item));
+        console.log('loadedRoutes', loadedRoutes);
+        const loadedRouteNames = loadedRoutes.map(item => item.route.name);
+        console.log('loadedRouteNames', loadedRouteNames);
+        this.loadedRouteNames = loadedRouteNames;
+      }, true);
+    }
+  },
+}
+</script>
 
 <style>
 #app {
