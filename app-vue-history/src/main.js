@@ -13,7 +13,7 @@ let instance = null;
 
 function render({ container } = {}) {
   router = new VueRouter({
-    base: window.__POWERED_BY_QIANKUN__ ? '/app-vue-history' : '/',
+    base: window.__POWERED_BY_QIANKUN__ ? '/about/app-vue-history' : '/',
     mode: 'history',
     routes,
   });

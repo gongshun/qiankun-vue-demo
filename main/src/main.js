@@ -23,14 +23,14 @@ registerMicroApps([
     name: 'app-vue-hash', 
     entry: 'http://localhost:1111', 
     container: '#appContainer', 
-    activeRule: '/app-vue-hash', 
+    activeRule: '/about/app-vue-hash', 
     props: { data : { store, router } }
   },
   { 
     name: 'app-vue-history',
     entry: 'http://localhost:2222', 
     container: '#appContainer', 
-    activeRule: '/app-vue-history',
+    activeRule: '/about/app-vue-history',
     props: { data : store }
   },
 ]);
