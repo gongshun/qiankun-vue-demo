@@ -5,6 +5,13 @@
 </template>
 <script>
 export default {
+  name: 'About',
+  activated() {
+    console.log('history about activated');
+  },
+  deactivated() {
+    console.log('history about deactivated');
+  },
   mounted() {
     window.a = 1;
     console.log(window.a,'app-vue-history');
