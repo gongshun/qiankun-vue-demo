@@ -40,8 +40,8 @@ export default {
   data() {
     return {
       menuData: [
-        { name: '子应用1的home', value: '/app-vue-hash/#/' },
-        { name: '子应用1的about', value: '/app-vue-hash/#/about' },
+        { name: '子应用1的home', value: '/app-vue-hash/#/layout1/home' },
+        { name: '子应用1的about', value: '/app-vue-hash/#/layout2/about' },
         { name: '子应用2的home', value: '/app-vue-history/' },
         { name: '子应用2的about', value: '/app-vue-history/about' },
         { name: '主应用的about', value: '/about' },
