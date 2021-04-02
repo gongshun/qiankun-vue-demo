@@ -9,6 +9,8 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import { registerMicroApps, start } from 'qiankun';
+import HelloWorld from './components/HelloWorld.vue';
+window.HelloWorld = HelloWorld;
 
 Vue.config.productionTip = false
 
