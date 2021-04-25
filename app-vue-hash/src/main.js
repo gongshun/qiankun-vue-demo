@@ -4,7 +4,9 @@ import VueRouter from 'vue-router';
 import App from './App.vue';
 import routes from './router';
 import store from './store';
+import ElementUI from 'element-ui';
 
+Vue.use(ElementUI);
 Vue.config.productionTip = false;
 
 let router = null;

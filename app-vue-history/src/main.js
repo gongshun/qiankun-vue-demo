@@ -5,13 +5,25 @@ import VueRouter from 'vue-router';
 import App from './App.vue';
 import routes from './router';
 import store from './store';
+import VueI18n from 'vue-i18n'
 
+const i18n = new VueI18n({
+  locale: 'zh-cn',
+  messages:{
+    en: {
+      message: 'hello，vue-history',
+    },
+    'zh-cn': {
+      message: '你好，vue-history',
+    }
+  }
+})
 Vue.config.productionTip = false;
 
 let router = null;
 let instance = null;
 
-function render({ container } = {}) {
+function render({ container, onGlobalStateChange } = {}) {
   router = new VueRouter({
     base: window.__POWERED_BY_QIANKUN__ ? '/app-vue-history' : '/',
     mode: 'history',
@@ -19,10 +31,14 @@ function render({ container } = {}) {
   });
 
   instance = new Vue({
+    i18n,
     router,
     store,
     render: h => h(App),
   }).$mount(container ? container.querySelector('#appVueHistory') : '#appVueHistory');
+  onGlobalStateChange?.((state, prev) => {
+    instance.$i18n.locale = state.locale;
+  }, true);
 }
 
 if (!window.__POWERED_BY_QIANKUN__) {

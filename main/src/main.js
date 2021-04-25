@@ -9,10 +9,25 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import { registerMicroApps, start } from 'qiankun';
+import VueI18n from 'vue-i18n'
+
+console.log(ELEMENT.lang.en,'ELEMENT.lang.en');
+const i18n = new VueI18n({
+  locale: 'zh-cn',
+  messages:{
+    en: {
+      message: 'hello',
+    },
+    'zh-cn': {
+      message: '你好',
+    }
+  }
+})
 
 Vue.config.productionTip = false
 
 new Vue({
+  i18n,
   router,
   store,
   render: h => h(App)
