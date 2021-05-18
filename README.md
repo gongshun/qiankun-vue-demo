@@ -2,7 +2,7 @@
 
 用`qiankun`来实现`vue`技术栈的前端微服务
 
-`main`是主项目，`app-vue-hash`是`hash`模式路由的子项目，`app-vue-history`是`history`模式路由的子项目
+`main`是主项目，`app-vue-hash`是`hash`模式路由的子项目
 
 `qiankun`的开发和打包和正常模式一模一样，它使用一个全局变量`__POWERED_BY_QIANKUN__`来区分微前端模式和正常模式，不需要额外的配置和代码。
 
@@ -19,8 +19,4 @@
 
 ## 分支介绍
 
-- `master` 分支： `qiankun` 的常规基础用法
-- `feature/keep-alive` 分支 ：使用 `loadMicroApp` 来实现 `keep-alive` 的tab效果
-- `feature/share-component` 分支 ：项目间共享组件的例子
-- `feature/routing-page` 分支 ：在主项目的某个路由页面加载子应用
-- `develop` 分支 ：修改源码来实现 `keep-alive`，以及公共依赖的复用的例子
+主子项目都是 hash 模式的路由

@@ -1,13 +1,15 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-      <p>a链接跳转到主项目/其他子项目的页面，页面会刷新，效果不好<a href="/about">parent About</a></p>
+      <router-link to="/app-vue-hash/">Home</router-link> |
+      <router-link to="/app-vue-hash/about">About</router-link>
       <p v-if="isQiankun">
         主项目把router传给子项目，子项目用这个router来跳转
         <span @click="goToPage('/about')">parent About</span>
-        <span @click="goToPage('/app-vue-history/about')">app-vue-history About</span>
+      </p>
+      <p v-if="isQiankun">
+        子项目用自己的 router-link 来跳转也可以，效果一样
+        <router-link to="/about">parent About</router-link>
       </p>
     </div>
     <router-view/>

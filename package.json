@@ -5,16 +5,13 @@
   "main": "index.js",
   "scripts": {
     "install:hash": "cd app-vue-hash && npm install",
-    "install:history": "cd app-vue-history && npm install",
     "install:main": "cd main && npm install",
     "install-all": "npm-run-all install:*",
     "start:hash": "cd app-vue-hash && npm run serve ",
-    "start:history": "cd app-vue-history && npm run serve",
     "start:main": "cd main && npm run serve",
     "start-all": "npm-run-all --parallel start:*",
     "serve-all": "npm-run-all --parallel start:*",
     "build:hash": "cd app-vue-hash && npm run build",
-    "build:history": "cd app-vue-history && npm run build",
     "build:main": "cd main && npm run build",
     "build-all": "npm-run-all --parallel build:*"
   },
