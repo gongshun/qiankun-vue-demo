@@ -5,10 +5,10 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/about',
-    name: 'About',
-    component: () => import('../views/About.vue')
-  }
+    path: '/',
+    name: 'Home',
+    component: () => import('../views/Home.vue')
+  },
 ]
 
 const router = new VueRouter({

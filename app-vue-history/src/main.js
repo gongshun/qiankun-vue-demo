@@ -13,8 +13,7 @@ let instance = null;
 
 function render({ container } = {}) {
   router = new VueRouter({
-    base: window.__POWERED_BY_QIANKUN__ ? '/app-vue-history' : '/',
-    mode: 'history',
+    mode: 'abstract',
     routes,
   });
 
@@ -28,8 +27,7 @@ function render({ container } = {}) {
 if (!window.__POWERED_BY_QIANKUN__) {
   render();
 }
-//测试全局变量污染
-window.a = 1;
+
 export async function bootstrap() {
   console.log('vue app bootstraped');
 }
@@ -37,9 +35,6 @@ export async function bootstrap() {
 export async function mount(props) {
   console.log('props from main framework', props);
   render(props);
-  // 测试一下 body 的事件，不会被沙箱移除
-  // document.body.addEventListener('click', e => console.log('document.body.addEventListener'))
-  // document.body.onclick = e => console.log('document.body.addEventListener')
 }
 
 export async function unmount() {

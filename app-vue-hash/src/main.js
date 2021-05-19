@@ -12,19 +12,17 @@ let instance = null;
 
 function render({ data = {} , container } = {}) {
   router = new VueRouter({
+    mode: 'abstract',
     routes,
   });
   instance = new Vue({
     router,
     store,
-    data(){
-      return {
-        parentRouter: data.router,
-        parentVuex: data.store,
-      }
-    },
     render: h => h(App),
   }).$mount(container ? container.querySelector('#appVueHash') : '#appVueHash');
+  if (data?.defaultPath) {
+    router.push(data.defaultPath);
+  }
 }
 
 if (!window.__POWERED_BY_QIANKUN__) {
