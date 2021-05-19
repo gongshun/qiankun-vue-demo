@@ -27,4 +27,5 @@
 - `feature/share-dependencies` 分支 ：子项目复用主项目的公共依赖（vue，vuex，vue-router），以及主子项目间 i18n 的处理
 - `feature/vite-child` 分支 ：子项目是 vite 构建的 vue3 项目
 - `feature/use-main-app-component` 分支 ：子项目复用主项目的依赖
+- `feature/abstract-route` 分支 ：主项目同时展示两个子应用的不同页面，子项目使用 abstract 路由
 - `develop` 分支 ：修改源码来实现 `keep-alive`，以及公共依赖的复用的例子
