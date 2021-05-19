@@ -20,7 +20,11 @@
 ## 分支介绍
 
 - `master` 分支： `qiankun` 的常规基础用法
-- `feature/keep-alive` 分支 ：使用 `loadMicroApp` 来实现 `keep-alive` 的tab效果
+- `feature/hash-router` 分支 ：主子项目都是 `hash` 模式
+- `feature/keep-alive` 分支 ：使用 `loadMicroApp` 来实现 `keep-alive` 的 `tab` 效果
 - `feature/share-component` 分支 ：项目间共享组件的例子
 - `feature/routing-page` 分支 ：在主项目的某个路由页面加载子应用
+- `feature/share-dependencies` 分支 ：子项目复用主项目的公共依赖（vue，vuex，vue-router），以及主子项目间 i18n 的处理
+- `feature/vite-child` 分支 ：子项目是 vite 构建的 vue3 项目
+- `feature/use-main-app-component` 分支 ：子项目复用主项目的依赖
 - `develop` 分支 ：修改源码来实现 `keep-alive`，以及公共依赖的复用的例子
