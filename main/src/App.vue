@@ -89,8 +89,10 @@ export default {
         }
         // 添加 tab 纪录
         const selectMenu = this.menuData.find(item => item.value === indexPath);
-        this.allTabs.push(selectMenu);
-        this.currentTab = indexPath;
+        if(selectMenu){
+          this.allTabs.push(selectMenu);
+          this.currentTab = indexPath;
+        }
       }
     },
     removeTab (tab) {
@@ -114,7 +116,23 @@ export default {
     changeTab (tab) {
       if(tab.name === this.$route.path) return;
       this.$router.push(tab.name);
+    },
+    initTab(){
+      let { fullPath } = this.$route;
+      const { pathname } = window.location;
+      // 主应用的路由页面
+      if (fullPath === '/' && pathname !==  '/') {
+        fullPath = pathname;
+      }
+      // history 子应用路由页面，需要去掉 #/
+      if (fullPath.includes('app-vue-history') && fullPath.includes('#')) {
+        fullPath = pathname
+      }
+      this.changeMenu(fullPath);
     }
+  },
+  mounted() {
+    this.initTab();
   },
 }
 </script>
