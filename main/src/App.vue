@@ -1,7 +1,7 @@
 <template>
   <el-container>
     <el-aside width="200px">
-      <el-menu @select="changeMenu" router>
+      <el-menu @select="changeMenu" :default-active="currentTab" router>
         <el-menu-item v-for="item in menuData" :index="item.value"  :key="item.value">
           <template #title>{{ item.name }}</template>
         </el-menu-item>
@@ -111,6 +111,17 @@ export default {
         }
       }
       const deleteTab = this.allTabs.findIndex(item => item.value === tab);
+      // 如果被关闭的 tab 是激活的 tab
+      if (tab === this.currentTab) {
+        let defaultPath = '/';
+        if (this.allTabs[deleteTab+1]) {
+          defaultPath = this.allTabs[deleteTab+1].value
+        } else if (this.allTabs[deleteTab-1]) {
+          defaultPath = this.allTabs[deleteTab-1].value
+        }
+        this.currentTab = defaultPath;
+        this.changeTab({ name: defaultPath });
+      }
       this.allTabs.splice(deleteTab, 1);
     },
     changeTab (tab) {
