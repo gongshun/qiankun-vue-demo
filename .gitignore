@@ -5,3 +5,7 @@ app-vue-history/dist/
 main/node_modules/
 main/dist/
 /node_modules
+package-lock.json
+app-vue-hash/package-lock.json
+app-vue-history/package-lock.json
+main/package-lock.json
