@@ -4,3 +4,4 @@ app-vue-history
 main/node_modules/
 main/dist/
 /node_modules
+package-lock.json
